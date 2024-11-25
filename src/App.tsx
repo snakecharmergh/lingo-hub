@@ -5,6 +5,7 @@ import { NewMemo } from './NewMemo'
 import { useLocalStorage } from './useLocalStorage'
 import { useMemo } from 'react'
 import { v4 as uuidV4 } from 'uuid'
+import { MemoList } from './MemoList'
 
 // we create the types RawMemo & RawMemoData to store the ids of the tags of each memo>>>propgate the change only on the Tags updated of that certain ids rather than of the whole memo
 export type RawMemo= {
@@ -60,7 +61,7 @@ function App() {
   return (
     <Container className='my-4'>
       <Routes>
-        <Route path='/' element={<h1>Home</h1>} />
+        <Route path='/' element={<MemoList availableTags={tags}/>} />
         <Route path='/new' element={<NewMemo onSubmit={onCreateMemo} onAddTag={addTag} availableTags= {tags}/>} />
         <Route path='/:id'>
           <Route index element={<h1>Show</h1>} />
