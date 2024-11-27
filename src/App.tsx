@@ -61,7 +61,7 @@ function App() {
   return (
     <Container className='my-4'>
       <Routes>
-        <Route path='/' element={<MemoList availableTags={tags}/>} />
+        <Route path='/' element={<MemoList memos={memosWithTags} availableTags={tags}/>} />
         <Route path='/new' element={<NewMemo onSubmit={onCreateMemo} onAddTag={addTag} availableTags= {tags}/>} />
         <Route path='/:id'>
           <Route index element={<h1>Show</h1>} />
