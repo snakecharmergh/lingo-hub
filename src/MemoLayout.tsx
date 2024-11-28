@@ -13,6 +13,6 @@ export function MemoLayout ({memos}: MemoLayoutProps) {
   return <Outlet context= {memo}/> // outlet  react routes renders whatever inside the routes (either the edit or show page)
 }
 
-export function useMemo() {
+export function useCustomizedMemo() {
   return useOutletContext<Memo>()
 }
