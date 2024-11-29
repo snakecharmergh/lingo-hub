@@ -1,4 +1,4 @@
-import { MemoData, Tag } from "./App";
+import { MemoData, Tag } from "../App";
 import { MemoForm } from "./MemoForm";
 import { useCustomizedMemo } from "./MemoLayout";
 

@@ -1,14 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container } from 'react-bootstrap'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { NewMemo } from './NewMemo'
+import { NewMemo } from './components/NewMemo'
 import { useLocalStorage } from './useLocalStorage'
 import { useMemo } from 'react'
 import { v4 as uuidV4 } from 'uuid'
-import { MemoList } from './MemoList'
-import { MemoLayout } from './MemoLayout'
-import { Memo } from './Memo'
-import { EditMemo } from './EditMemo'
+import { MemoList } from './components/MemoList'
+import { MemoLayout } from './components/MemoLayout'
+import { Memo } from './components/Memo'
+import { EditMemo } from './components/EditMemo'
 
 // we create the types RawMemo & RawMemoData to store the ids of the tags of each memo>>>propgate the change only on the Tags updated of that certain ids rather than of the whole memo
 export type RawMemo= {

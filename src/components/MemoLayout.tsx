@@ -1,5 +1,5 @@
 import { Navigate, Outlet, useOutletContext, useParams } from "react-router-dom"
-import { Memo } from "./App"
+import { Memo } from "../App"
 
 type MemoLayoutProps = {
   memos: Memo[]
