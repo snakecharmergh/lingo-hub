@@ -23,7 +23,7 @@ export function MemoForm({onSubmit, onAddTag, availableTags, title= "", markdown
 
     onSubmit({
       title: titleRef.current!.value,
-      body: markdownRef.current!.value,
+      markdown: markdownRef.current!.value,
       tags: selectedTags,
     })
     //to navigate to the previous page once clicking the save button

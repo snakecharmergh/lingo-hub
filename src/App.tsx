@@ -17,7 +17,7 @@ export type RawMemo= {
 
 export type RawMemoData= {
   title: string
-  body: string
+  markdown: string
   tagIds: string[]
 }
 
@@ -27,7 +27,7 @@ export type Memo= {
 
 export type MemoData= {
   title: string
-  body: string
+  markdown: string
   tags: Tag[]
 }
 

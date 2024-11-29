@@ -15,7 +15,7 @@ export function EditMemo({onSubmit, onAddTag,availableTags }: EditMemoProps){
       <h1 className="mb-4">Edit Memo</h1>
       <MemoForm //title, markdwon, tags are the initial defualt data that is used and renderd automatically on the edit page
         title={memo.title}
-        markdown= {memo.body}
+        markdown= {memo.markdown}
         tags= {memo.tags}
         onSubmit={data => onSubmit(memo.id, data)}
         onAddTag={onAddTag}

@@ -136,6 +136,7 @@ function EditTagsModal({
   onDeleteTag,
 }: editTagsModalProps) {
   return (
+    // Add dialogs to the site for lightboxes, user notifications, or completely custom content.
   <Modal show={show} onHide={handleClose}>
     <Modal.Header closeButton>
       <Modal.Title>Edit Tags</Modal.Title>

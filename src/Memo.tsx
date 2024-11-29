@@ -45,7 +45,7 @@ export function Memo( {onDeleteMemo}: MemoProps) {
 
       </Row>
 
-      <ReactMarkdown>{memo.body}</ReactMarkdown>
+      <ReactMarkdown>{memo.markdown}</ReactMarkdown>
     </>
   )
 }
