@@ -9,12 +9,13 @@ import { v4 as uuidV4 } from 'uuid'
 type MemoFormProps= {
   onSubmit: (data: MemoData) => void
   onAddTag: (tag: Tag) => void
-  availableTags: Tag[]}
+  availableTags: Tag[]
+} & Partial<MemoData> // use partial to pass all the memo data but noe is required and all are optional since we need them only for the EditMemo but not for the NewMemo
 
-export function MemoForm({onSubmit, onAddTag, availableTags}: MemoFormProps) {
+export function MemoForm({onSubmit, onAddTag, availableTags, title= "", markdown= "", tags=[]}: MemoFormProps) {
   const titleRef = useRef<HTMLInputElement>(null)
   const markdownRef = useRef<HTMLTextAreaElement>(null)
-  const [selectedTags, setSelectedTags]= useState<Tag[]>([]) //to store our tags
+  const [selectedTags, setSelectedTags]= useState<Tag[]>(tags) //to store our tags
   const navigate = useNavigate( )
 
   function handleSubmit(e:FormEvent) {
@@ -36,7 +37,7 @@ export function MemoForm({onSubmit, onAddTag, availableTags}: MemoFormProps) {
           <Col>
             <Form.Group controlId="title">
               <Form.Label>Title</Form.Label>
-              <Form.Control ref={titleRef} required />
+              <Form.Control ref={titleRef} required defaultValue={title} />
             </Form.Group>
           </Col>
 
@@ -71,8 +72,8 @@ export function MemoForm({onSubmit, onAddTag, availableTags}: MemoFormProps) {
         </Row>
 
         <Form.Group controlId="markdown">
-          <Form.Label>Memo Body</Form.Label>
-          <Form.Control required as='textarea' ref= {markdownRef} rows={20}/>
+          <Form.Label>Body</Form.Label>
+          <Form.Control defaultValue={markdown} required as='textarea' ref= {markdownRef} rows={20}/>
         </Form.Group>
 
         <Stack direction="horizontal" className="justify-content-end" gap={3}>

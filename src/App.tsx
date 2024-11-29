@@ -8,6 +8,7 @@ import { v4 as uuidV4 } from 'uuid'
 import { MemoList } from './MemoList'
 import { MemoLayout } from './MemoLayout'
 import { Memo } from './Memo'
+import { EditMemo } from './EditMemo'
 
 // we create the types RawMemo & RawMemoData to store the ids of the tags of each memo>>>propgate the change only on the Tags updated of that certain ids rather than of the whole memo
 export type RawMemo= {
@@ -56,6 +57,18 @@ function App() {
     })
   }
 
+  function onUpdateMemo(id: string, {tags, ...data}: MemoData){
+    setMemos(prevMemos => {
+      return prevMemos.map(memo => {
+        if(memo.id === id) {
+          return {...memo, ...data, tagIds: tags.map(tag => tag.id)} //...memo saves the existing data while ...data overwrites with the new updated data
+        } else {
+          return memo
+        }
+      })
+    })
+  }
+
   function addTag(tag: Tag ) {
     setTags(prev => [...prev, tag])
   }
@@ -67,7 +80,7 @@ function App() {
         <Route path='/new' element={<NewMemo onSubmit={onCreateMemo} onAddTag={addTag} availableTags= {tags}/>} />
         <Route path='/:id' element={<MemoLayout memos={memosWithTags} />}>
           <Route index element={< Memo />} />
-          <Route path='edit' element={<h1>Edit</h1>} />
+          <Route path='edit' element={<EditMemo onSubmit={onUpdateMemo} onAddTag={addTag} availableTags= {tags} />} />
         </Route>
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>
