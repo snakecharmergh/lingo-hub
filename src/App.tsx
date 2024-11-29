@@ -79,11 +79,42 @@ function App() {
     setTags(prev => [...prev, tag])
   }
 
+  function updateTag(id:string, label: string) {
+    setTags(prevTags => {
+      return prevTags.map(tag => {
+        if (tag.id === id) {
+          return {...tag, label}
+        } else {
+          return tag
+        }
+      })
+    })
+
+  }
+
+  function deleteTag(id:string) {
+    setTags(prevTags => {
+      return prevTags.filter(tag => tag.id !== id)
+    })
+  }
+
   return (
     <Container className='my-4'>
       <Routes>
-        <Route path='/' element={<MemoList memos={memosWithTags} availableTags={tags}/>} />
-        <Route path='/new' element={<NewMemo onSubmit={onCreateMemo} onAddTag={addTag} availableTags= {tags}/>} />
+        <Route path='/' element={
+          <MemoList
+            memos={memosWithTags}
+            availableTags={tags}
+            OnUpdateTag= {updateTag}
+            onDeleteTag= {deleteTag}/>} />
+
+        <Route path='/new' element={
+          <NewMemo
+            onSubmit={onCreateMemo}
+            onAddTag={addTag}
+            availableTags= {tags}/>} />
+
+
         <Route path='/:id' element={<MemoLayout memos={memosWithTags} />}>
           <Route index element={< Memo onDeleteMemo={onDeleteMemo} />} />
           <Route path='edit' element={<EditMemo onSubmit={onUpdateMemo} onAddTag={addTag} availableTags= {tags} />} />
