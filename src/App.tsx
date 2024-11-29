@@ -69,6 +69,12 @@ function App() {
     })
   }
 
+  function onDeleteMemo(id:string) {
+    setMemos(prevMemos => {
+      return prevMemos.filter(memo => memo.id !==id)
+    })
+  }
+
   function addTag(tag: Tag ) {
     setTags(prev => [...prev, tag])
   }
@@ -79,7 +85,7 @@ function App() {
         <Route path='/' element={<MemoList memos={memosWithTags} availableTags={tags}/>} />
         <Route path='/new' element={<NewMemo onSubmit={onCreateMemo} onAddTag={addTag} availableTags= {tags}/>} />
         <Route path='/:id' element={<MemoLayout memos={memosWithTags} />}>
-          <Route index element={< Memo />} />
+          <Route index element={< Memo onDeleteMemo={onDeleteMemo} />} />
           <Route path='edit' element={<EditMemo onSubmit={onUpdateMemo} onAddTag={addTag} availableTags= {tags} />} />
         </Route>
         <Route path='*' element={<Navigate to='/' />} />

@@ -1,10 +1,15 @@
 import { Badge, Button, Col, Row, Stack } from "react-bootstrap";
 import { useCustomizedMemo } from "./MemoLayout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 
-export function Memo() {
+type MemoProps = {
+  onDeleteMemo: (id: string) => void
+}
+
+export function Memo( {onDeleteMemo}: MemoProps) {
   const memo = useCustomizedMemo()
+  const navigate = useNavigate() // custom react hook
 
   return(
     <>
@@ -26,7 +31,11 @@ export function Memo() {
             <Link to= {`/${memo.id}/edit`}>
               <Button variant='primary'>Edit</Button>
             </Link>
-            <Button variant="outline-danger">Delete</Button>
+            <Button
+              variant="outline-danger"
+              onClick={() => {
+                onDeleteMemo(memo.id)
+                navigate("/")}}>Delete</Button>
             <Link to={"/"}>
               <Button variant="outline-secondary">Back</Button>
             </Link>
