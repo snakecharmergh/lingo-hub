@@ -9,8 +9,10 @@ import { MemoList } from './components/MemoList'
 import { MemoLayout } from './components/MemoLayout'
 import { Memo } from './components/Memo'
 import { EditMemo } from './components/EditMemo'
+import styles from './App.module.css'
 
-// we create the types RawMemo & RawMemoData to store the ids of the tags of each memo>>>propgate the change only on the Tags updated of that certain ids rather than of the whole memo
+
+//create the types RawMemo & RawMemoData to store the ids of the tags of each memo>>>propgate the change only on the Tags updated of that certain ids rather than of the whole memo
 export type RawMemo= {
   id:string
 } & RawMemoData
@@ -99,7 +101,7 @@ function App() {
   }
 
   return (
-    <Container className='my-4'>
+    <Container className={`my-4  ${styles.container}`}>
       <Routes>
         <Route path='/' element={
           <MemoList

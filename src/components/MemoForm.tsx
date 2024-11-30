@@ -77,9 +77,9 @@ export function MemoForm({onSubmit, onAddTag, availableTags, title= "", markdown
         </Form.Group>
 
         <Stack direction="horizontal" className="justify-content-end" gap={3}>
-          <Button type="submit" variant="primary">Save</Button>
+          <Button type="submit" variant="info">Save</Button>
           <Link to='..'>
-            <Button type="button" variant="outline-secondary">Cancel</Button>
+            <Button type="button" variant="outline-danger">Cancel</Button>
           </Link>
         </Stack>
 

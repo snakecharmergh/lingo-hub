@@ -1,0 +1,12 @@
+.container {
+  /* background-color: #121212; */
+  margin-top: 70px;
+  padding: 20px;
+  width: 100%;
+ }
+
+body {
+  background-color: #121212;
+  margin: 0;
+  padding: 0;
+}
