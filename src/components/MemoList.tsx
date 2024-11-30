@@ -147,7 +147,7 @@ export function MemoList({
             </Row>
           </Form>
 
-          <Row xs={1} sm={2} lg={3} xl={4} className="g-3">
+          <Row xs={1} lg={2} className="g-3">
             {filteredMemos.map((memo) => (
               <Col key={memo.id}>
                 <MemoCard id={memo.id} title={memo.title} tags={memo.tags} />
