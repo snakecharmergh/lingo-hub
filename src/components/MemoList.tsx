@@ -46,10 +46,9 @@ export function MemoList({
   const fetchGrammarRules = async () => {
     setLoading(true);
     try {
-      // Example API call to LanguageTool for general German grammar rules
       const response = await axios.post("https://api.languagetool.org/v2/check", {
-        text: "Beispieltext",  // Placeholder text for the grammar check
-        language: "de",  // German language
+        text: "Beispieltext",
+        language: "de",
       });
 
       // Fetch and display the rules from the response
@@ -81,22 +80,25 @@ export function MemoList({
 
   return (
     <>
-      <Row className="mb-4 mt-10">
+      <Row className="mb-4 ps-3">
         {/* Left column: Grammar rules list */}
         <Col xs={4}>
-          <h4>Grammar Rules</h4>
-          {loading ? (
-            <p>Loading grammar rules...</p>
-          ) : grammarRules.length > 0 ? (
-            <ul>
-              {grammarRules.map((rule, index) => (
-                <li key={index}>{rule}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>No grammar rules found.</p>
-          )}
+          <div className={styles.grammar}>
+            <h4>Grammar Rules</h4>
+            {loading ? (
+              <p>Loading grammar rules...</p>
+            ) : grammarRules.length > 0 ? (
+              <ul>
+                {grammarRules.map((rule, index) => (
+                  <li key={index}>{rule}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>No grammar rules found.</p>
+            )}
+          </div>
         </Col>
+
 
         {/* Right column: Memos */}
         <Col>
@@ -107,9 +109,9 @@ export function MemoList({
             <Col xs="auto">
               <Stack gap={2} direction="horizontal">
                 <Link to="/new">
-                  <Button variant="primary">Create</Button>
+                  <Button variant="info">Create</Button>
                 </Link>
-                <Button onClick={() => setEditTagsModalIsOpen(true)} variant="outline-secondary">
+                <Button onClick={() => setEditTagsModalIsOpen(true)} variant="outline-warning">
                   Edit Tags
                 </Button>
               </Stack>
@@ -175,7 +177,7 @@ function MemoCard({ id, title, tags }: SimplifiedMemo) {
           {tags.length > 0 && (
             <Stack gap={1} direction="horizontal" className="justify-content-center flex-wrap">
               {tags.map((tag) => (
-                <Badge key={tag.id} className="text-truncate">
+                <Badge key={tag.id} className={`text-truncate ${styles.badge}`}>
                   {tag.label}
                 </Badge>
               ))}
