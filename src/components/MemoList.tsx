@@ -42,7 +42,7 @@ export function MemoList({
   const [grammarRules, setGrammarRules] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Fetch general German grammatical rules
+  // Fetch German grammatical rules
   const fetchGrammarRules = async () => {
     setLoading(true);
     try {
