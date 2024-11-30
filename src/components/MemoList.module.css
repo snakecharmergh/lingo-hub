@@ -58,9 +58,10 @@ li {
 
 li > a {
   color: #ffffff;
+  font-weight: bolder;
   text-decoration: none;
 }
 
 li > a:hover {
-  color: rgba(2, 52, 70, 0.996);
+  color: rgba(2, 44, 58, 0.996);
 }
