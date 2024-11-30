@@ -177,7 +177,7 @@ function MemoCard({ id, title, tags }: SimplifiedMemo) {
           {tags.length > 0 && (
             <Stack gap={1} direction="horizontal" className="justify-content-center flex-wrap">
               {tags.map((tag) => (
-                <Badge key={tag.id} className="text-truncate">
+                <Badge key={tag.id} className={`text-truncate ${styles.badge}`}>
                   {tag.label}
                 </Badge>
               ))}

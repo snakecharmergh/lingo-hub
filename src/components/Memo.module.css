@@ -8,6 +8,9 @@
 }
 
 .badge {
-  font-size: 60px !important;
-  padding: 20px;
+  background-color: rgba(13, 112, 142, 0.786) !important;
+  color: white !important;
+  font-size: 14px;
+  padding: 10px;
+  margin: 3px;
 }

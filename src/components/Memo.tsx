@@ -21,7 +21,7 @@ export function Memo( {onDeleteMemo}: MemoProps) {
             <Stack gap={1} direction="horizontal" className="flex-wrap">
               {memo.tags.map(tag => (
                 // text-truncate for the text not to overflow
-                <Badge key={tag.id} style={{ fontSize: '1.01rem', padding: '10px', margin: '5px' }} className="text-truncate">{tag.label}</Badge>
+                <Badge key={tag.id} className={`text-truncate ${styles.badge}`}>{tag.label}</Badge>
               ))}
             </Stack>
           }
