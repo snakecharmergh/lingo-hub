@@ -1,6 +1,6 @@
 .markdown {
   background-color: #fcf2f2;
-  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0) !important;
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(123, 8, 8, 0.764);
@@ -8,7 +8,7 @@
 }
 
 .badge {
-  background-color: rgba(13, 112, 142, 0.786) !important;
+  background-color: rgba(13, 112, 142, 0.697) !important;
   color: white !important;
   font-size: 14px;
   padding: 10px;

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import ReactSelect from "react-select";
 import { Tag } from "../App";
 import styles from "./MemoList.module.css";
-import axios from "axios";
 
 // SimplifiedMemo is a simplified version of the memo without the markdown
 type SimplifiedMemo = {
@@ -28,6 +27,7 @@ type EditTagsModalProps = {
   onDeleteTag: (id: string) => void;
 };
 
+
 export function MemoList({
   availableTags,
   memos,
@@ -39,27 +39,34 @@ export function MemoList({
   const [editTagsModalIsOpen, setEditTagsModalIsOpen] = useState(false);
 
   // States for grammar rules API call
-  const [grammarRules, setGrammarRules] = useState<string[]>([]);
+  const [grammarRules, setGrammarRules] = useState<{ title: string; link: string }[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Fetch German grammatical rules
+
+  // Fetch German grammar rules
   const fetchGrammarRules = async () => {
     setLoading(true);
     try {
-      const response = await axios.post("https://api.languagetool.org/v2/check", {
-        text: "Beispieltext",
-        language: "de",
-      });
+        // Example of using a static resource list since APIs for grammar links are rare
+        const grammarLinks = [
+          { title: "German Grammar Overview - DeutschAkademie", link: "https://www.deutschakademie.de/online-deutschkurs/english" },
+          { title: "German Grammar Rules - Chatterbug", link: "https://chatterbug.com/grammar/german" },
+          { title: "German Grammar - Lingolia", link: "https://deutsch.lingolia.com/en/" },
+          { title: "German Grammar Tips - Duolingo", link: "https://blog.duolingo.com/de/" },
+          { title: "Grammar Tutorials - Goethe-Institut", link: "https://www.goethe.de/en/spr/ueb.html" },
+          { title: "German Grammar Overview - German.net", link: "https://german.net/" },
+          { title: "Learn German with Grammar Lessons - GermanPod101", link: "https://www.germanpod101.com/" }
+        ];
 
-      // Fetch and display the rules from the response
-      const rules = response.data.matches.map((match: any) => match.message);
-      setGrammarRules(rules);
+        setGrammarRules(grammarLinks);
     } catch (error) {
-      console.error("Error fetching grammar rules:", error);
+        console.error("Error fetching grammar rules:", error);
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
+
+
 
   // Fetch grammar rules when the component mounts
   useEffect(() => {
@@ -83,20 +90,26 @@ export function MemoList({
       <Row className="mb-4 ps-3">
         {/* Left column: Grammar rules list */}
         <Col xs={4}>
-          <div className={styles.grammar}>
-            <h4>Grammar Rules</h4>
-            {loading ? (
-              <p>Loading grammar rules...</p>
-            ) : grammarRules.length > 0 ? (
-              <ul>
-                {grammarRules.map((rule, index) => (
-                  <li key={index}>{rule}</li>
-                ))}
-              </ul>
-            ) : (
-              <p>No grammar rules found.</p>
-            )}
-          </div>
+        <div className={styles.grammar}>
+          <h4>Resources</h4>
+          {loading ? (
+            <p>Loading grammar rules...</p>
+          ) : grammarRules.length > 0 ? (
+            <ul>
+              {grammarRules.map((rule, index) => (
+                <li key={index}>
+                  <a href={rule.link} target="_blank" rel="noopener noreferrer">
+                    {rule.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No grammar rules found.</p>
+          )}
+        </div>
+
+
         </Col>
 
 
