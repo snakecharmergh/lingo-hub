@@ -55,7 +55,7 @@ Clone the Repository
 Clone the repository to your local machine:
 
 ```
-git clone <repository-url>```
+git clone git@github.com:snakecharmergh/lingo-hub.git
 ```
 Run the App Locally: 
 Navigate to the project directory:
