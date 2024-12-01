@@ -48,28 +48,30 @@ export default tseslint.config({
   },
 })
 ```
+
 This is a responsive web application built using Vite and TypeScript. Follow the steps below to set up and explore the app.
 
-Getting Started
-Clone the Repository
+## Getting Started
+### Clone the Repository
 Clone the repository to your local machine:
 
 ```
 git clone git@github.com:snakecharmergh/lingo-hub.git
 ```
-Run the App Locally: 
+### Run the App Locally: 
 Navigate to the project directory:
 
 ```
 cd vite-ts-app
 ```
-Install dependencies:
+
+### Install dependencies:
 
 ```
 npm install
 ```
 
-Start the development server:
+### Start the development server:
 
 ```
 npm run dev
@@ -78,7 +80,7 @@ npm run dev
 Once the server is running, open your browser and go to http://localhost:3000 (or the port specified in your terminal). You should be directed to the homepage of the app.
 [Screenshot at 2024-12-01 14-11-57](https://github.com/user-attachments/assets/2a4a33cc-410a-4152-8699-dd72bc49646c)
 
-Required Dependencies:
+### Required Dependencies:
 All required dependencies are included in the package.json file and will be installed automatically when you run npm install. However, for reference, the project uses the following dependencies:
 
 ````
@@ -100,7 +102,7 @@ To install any additional dependencies manually, use the corresponding commands:
 npm i <dependency-name>
 ```
 
-  
+### App Features:  
 Explore the follwoing different features of the app:
 
 ````
