@@ -6,7 +6,7 @@ type MemoLayoutProps = {
 }
 
 export function MemoLayout ({memos}: MemoLayoutProps) {
-  const {id} = useParams() //a custom hook from React router to get the memo id straight from the url
+  const {id} = useParams() //a hook from React router to get the memo id straight from the url
   const memo = memos.find(m => m.id === id)
 
   if (memo == null) return <Navigate to='/' replace /> // to navigate to homepage and replce the url othe non-existing id with the homepage url

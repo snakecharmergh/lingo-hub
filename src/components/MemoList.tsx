@@ -138,6 +138,7 @@ export function MemoList({
                   <Form.Label>Title</Form.Label>
                   <FormControl
                     type="text"
+                    placeholder="Search"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                   />
